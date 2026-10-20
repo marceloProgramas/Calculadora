@@ -147,11 +147,12 @@ Por fim, Haskell utiliza avaliação preguiçosa (*lazy evaluation*): lê todo o
 
 Diferente do C, que exige gerenciamento manual, Haskell trabalha com gerenciamento automático proporcionado pelo GHC Runtime System.
 
-| **Critério** | **C (Manual)** | **Haskell (Runtime / GHC)** | 
-| **Alocação/Liberação** | Manual via `malloc()`, `calloc()` e `free()`. O programador escolhe o momento exato de desalocar. | Totalmente automática via GHC Runtime System. O programador não manipula ponteiros de memória de forma explícita. | 
-| **Modelagem de Dados** | Blocos contíguos de bytes. Variáveis locais e *structs* simples vão para a *Stack*; alocações dinâmicas vão para o *Heap*. | Quase tudo no *Heap* é representado como um *Closure* (nó em um grafo de computação, que pode ser um valor calculado ou um *thunk*). | 
-| **Vazamentos de Memória** | **Memory Leaks:** Ocorrem quando o programador esquece de liberar ponteiros alocados no *Heap*. | **Space Leaks:** Ocorrem por causa do *Lazy Evaluation*. A memória acumula *thunks* não avaliados que mantêm referências ativas. | 
-| **Segurança (Memory Safety)** | Baixa. Suscetível a *Dangling Pointers*, *Buffer Overflow*, *Double Free* e *Use-After-Free*. | Alta (*Memory Safe*). Erros de violação de memória são impossíveis no código Haskell puro em tempo de execução. | 
+| Critério | C (Manual) | Haskell (Runtime / GHC) |
+| :--- | :--- | :--- |
+| **Alocação e Liberação** | Manual via `malloc()`, `calloc()` e `free()`. O programador escolhe o momento exato da desalocação. | Totalmente automática via GHC Runtime System. O programador não manipula ponteiros de forma explícita. |
+| **Modelagem de Dados** | Blocos contíguos de bytes. Variáveis locais e *structs* simples vão para a *Stack*; alocações dinâmicas vão para o *Heap*. | Quase tudo no *Heap* é representado como um *Closure* (nó em um grafo de computação, podendo ser um valor calculado ou um *thunk*). |
+| **Vazamentos de Memória** | *Memory Leaks*: Ocorrem quando o programador se esquece de dar `free()` num ponteiro alocado no *Heap*. | *Space Leaks*: Ocorrem devido à *Lazy Evaluation*. A memória fica cheia pelo acúmulo de *thunks* não avaliados que mantêm referências ativas. |
+| **Segurança (*Memory Safety*)** | Baixa. Suscetível a *Dangling Pointers*, *Buffer Overflow*, *Double Free* e *Use-After-Free*. | Alta (*Memory Safe*). Erros de violação de memória são impossíveis no código Haskell puro em tempo de execução. | 
 
 ### 4. Trade-offs
 
