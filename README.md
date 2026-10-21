@@ -22,8 +22,6 @@
 
 ## Execução do Código
 
-> ⚠️ **Aviso:** O código deve rodar exclusivamente em ambiente online, sem necessidade de instalação local.
-
 ### Ambiente Online Utilizado:
 
 * [Acesse o projeto no OnlineGDB](https://onlinegdb.com/7TWVmQXO0)
