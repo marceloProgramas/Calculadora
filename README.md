@@ -166,10 +166,57 @@ Haskell apresenta vantagens expressivas como a recursividade pura e a avaliaçã
 
 ## Log de Uso de Inteligência Artificial (IA)
 
-* **O que foi pedido à IA:** Auxílio na estruturação e formatação em Markdown, além de correções gramaticais e conversão de blocos de código.
+**O que foi pedido à IA:** Utilizamos para tirar dúvidas sobre métodos da própria linguagem.
+**Qual IA foi utilizada:** Google Gemini
+**O que foi aproveitado:** Usamos esses métodos em diversas funções. Exemplos de métodos: `digitToInt`, `length`, `filter`, `any`, entre outros.
+**O que foi entendido pelo grupo:** Temos diversos métodos pré-existentes para lidar com situações como limpar uma string ou verificar o que tem dentro. Exemplo:
+```haskell
+temOper :: String -> Bool
+temOper = any (`elem` "+-*/()")
 
-* **Qual IA foi utilizada:** Gemini 3 Flash.
+```
 
-* **O que foi aproveitado:** A organização dos tópicos do relatório técnico e a formatação das tabelas e blocos de código em Haskell e Python.
+Caso utilizássemos a função `any`, teríamos que fazer uma recursão para olhar toda a string.
 
-* **O que foi reescrito/entendido pelo grupo:** A adaptação conceitual da lógica da calculadora e a revisão final da análise comparativa para garantir a fidelidade ao projeto desenvolvido.
+---
+
+**O que foi pedido à IA:** Tem como eu mapear alguns caracteres para que a linguagem verifique qual tem o maior valor e dê prioridade para ele?
+**Qual IA foi utilizada:** Google Gemini
+**O que foi aproveitado:** Ela deu algumas ideias de funções que pudessem ser usadas; uma delas foi o método `prioridade`.
+**O que foi reescrito pelo grupo:** Modificamos o método `prioridade` para ficar mais fácil de lidar.
+
+---
+
+**O que foi pedido à IA:** Quero fazer uma condição primária e depois algumas condições secundárias.
+**Qual IA foi utilizada:** Google Gemini
+**O que foi aproveitado:** Explicou sobre como no Haskell os métodos dão prioridade.
+**O que foi entendido pelo grupo:** Dando prioridade ao que é escrito primeiro e depois verificando os outros, fazendo termos que modificar a ordem de alguns *guards* e de formas de alguns métodos.
+
+---
+
+**O que foi pedido à IA:** Tenho um problema, como eu faço para caso eu precise tirar dois fins de parênteses como nesse código?
+**Qual IA foi utilizada:** Google Gemini
+**O que foi aproveitado:** Ele deu exemplos de formas de fazer para lidar com essa situação.
+**O que foi entendido pelo grupo:** O método `achaFim` foi adaptado para fazer a função dele e manter o método `verUlt` correto.
+
+---
+
+**O que foi pedido à IA:** O método para lidar com parênteses foi escrito de forma que gasta muitos recursos e dando erro de *run time*, como posso otimizá-lo?
+**Qual IA foi utilizada:** Google Gemini
+**O que foi aproveitado:** O método `eval` tem uma forma de lidar com os parênteses, pois eles sempre chegam nele sendo os últimos a se lidar.
+**O que foi reescrito pelo grupo:** Ele deu os métodos `eEnvolto` e `desembrulhar`, que fazem a verificação se está envolto e retiram o primeiro e último valor da string, respectivamente.
+
+---
+
+**O que foi pedido à IA:** Estou com um problema na situação de `(1+2)*(4/2)`, como posso arrumar isso?
+**Qual IA foi utilizada:** Anthropic Claude Sonnet 5.5 médio
+**O que foi aproveitado:** Ele fez o método de verificação se o cálculo está completamente envelopado, e não são só duas contas distintas.
+**O que foi entendido pelo grupo:** Ele desenvolveu um método que verifica se o último parênteses fecha; se tiver mais conta, ele devolve como negativo e passa para a próxima conta.
+
+---
+
+**O que foi pedido à IA:** Como posso tratar esses casos de número negativo e unitário?
+**Qual IA foi utilizada:** Anthropic Claude Sonnet 5.5 médio
+**O que foi aproveitado:** Implementou o cálculo melhor de negativos e unitários.
+**O que foi entendido pelo grupo:** Ele implementou uma verificação no `verUlt` para saber se o caractere prévio é um número; se for, ele conta como se fosse o último caractere atual; se não for, ele não conta como o último.
+
