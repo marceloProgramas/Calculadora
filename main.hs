@@ -2,8 +2,7 @@ import Data.Char (isSpace, digitToInt)
 
 main :: IO ()
 main = do
-    putStrLn "qual sua conta"
-    conta <- getLine
+    let conta = "(2+4)-(4/2)" -- Expressão aqui
     print (eval conta)
     
 temEsp :: String -> Bool
