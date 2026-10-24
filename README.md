@@ -24,19 +24,17 @@
 
 ### Ambiente Online Utilizado:
 
-* [Acesse o projeto no OnlineGDB](https://onlinegdb.com/7TWVmQXO0)
+* [Acesse o projeto no PlayHaskell](https://play.haskell.org/saved/lexsPuxM)
 
 ### Instruções de Teste (Entrada e Saída)
 
 1. Abra o link do OnlineGDB.
 
-2. Aperte o botão **Run**.
+2. Insira a expressão aritmética no na variável conta entre as aspas duplas(utilizando `*` para multiplicação).
 
-3. Insira a expressão matemática no terminal (utilizando `*` para multiplicação).
+3. Aperte o botão **Run**.
 
 4. O sistema retornará o resultado calculado.
-
-*Escolhemos usar o OnlineGDB pois o Play Haskell executa o código todo de uma vez e não permite o uso da biblioteca interativa para a entrada de dados pelo usuário.*
 
 #### Entrada de Exemplo:
 
