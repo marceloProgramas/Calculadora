@@ -134,7 +134,9 @@ def ver_ult(s: str, ct: int, ind: int, c: int) -> int:
 ### 2. Semântica
 
 Haskell é uma linguagem fortemente tipada, o que gera a maioria dos erros durante o desenvolvimento. Ela não permite a conversão implícita entre números inteiros e de ponto flutuante sem o tratamento devido, exigindo atenção em divisões. Apesar disso, permite definir tipos genéricos para lidar com situações flexíveis.
+
 Comparado ao Python, que possui tipagem dinâmica e flexível, a escrita em Haskell possui outra dinâmica. Outra característica marcante é a imutabilidade: as variáveis não mudam de valor após definidas. Tentar reatribuir x = 2 e depois x = 1 resulta em erro de compilação. As variáveis funcionam como constantes, sendo úteis para representar valores fixos (como constantes matemáticas).
+
 Por fim, Haskell utiliza avaliação preguiçosa (*lazy evaluation*): lê todo o código, mas posterga ao máximo a execução. Funções não avaliadas imediatamente são armazenadas como *thunks* (promessas de execução) e só são computadas quando funções de saída, como `print`, forçam o resultado.
 
 ### 3. Gerenciamento de Memória
