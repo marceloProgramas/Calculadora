@@ -141,15 +141,15 @@ Por fim, Haskell utiliza avaliação preguiçosa (*lazy evaluation*): lê todo o
 
 ### 3. Gerenciamento de Memória
 
-Diferente do C, que exige gerenciamento manual, Haskell trabalha com gerenciamento automático proporcionado pelo GHC Runtime System.
+semelhante ao Python, Haskell trabalha com gerenciamento automático proporcionado pelo GHC Runtime System.
 
-| Critério | C (Manual) | Haskell (Runtime / GHC) |
+| Critério | Python (CPython) | Haskell (GHC Runtime) |
 | :--- | :--- | :--- |
-| **Alocação e Liberação** | Manual via `malloc()`, `calloc()` e `free()`. O programador escolhe o momento exato da desalocação. | Totalmente automática via GHC Runtime System. O programador não manipula ponteiros de forma explícita. |
-| **Modelagem de Dados** | Blocos contíguos de bytes. Variáveis locais e *structs* simples vão para a *Stack*; alocações dinâmicas vão para o *Heap*. | Quase tudo no *Heap* é representado como um *Closure* (nó em um grafo de computação, podendo ser um valor calculado ou um *thunk*). |
-| **Vazamentos de Memória** | *Memory Leaks*: Ocorrem quando o programador se esquece de dar `free()` num ponteiro alocado no *Heap*. | *Space Leaks*: Ocorrem devido à *Lazy Evaluation*. A memória fica cheia pelo acúmulo de *thunks* não avaliados que mantêm referências ativas. |
-| **Segurança (*Memory Safety*)** | Baixa. Suscetível a *Dangling Pointers*, *Buffer Overflow*, *Double Free* e *Use-After-Free*. | Alta (*Memory Safe*). Erros de violação de memória são impossíveis no código Haskell puro em tempo de execução. | 
-
+| **Mecanismo do GC** | Contagem de Referências (Reference Counting) como mecanismo principal, auxiliado por um GC cíclico para detectar referências circulares. | Garbage Collector Copiador e Generacional baseado em rastreamento (tracing). Não utiliza contagem de referências. |
+| **Momento de Liberação** | Imediato: Na maioria dos casos, quando a contagem de referências de um objeto chega a zero, ele é desalocado instantaneamente na memória. | Pausado/Por Lotes: A memória não é liberada imediatamente ao perder a referência; a varredura e liberação ocorrem em ciclos organizados pelas gerações do GC. |
+| **Mutabilidade x Imutabilidade** | Permite objetos mutáveis por padrão (listas, dicionários). Modificações ocorrem diretamente no local de memória (in-place). | Dados são estritamente imutáveis. Alterar uma estrutura gera novos nós no Heap que compartilham referências com a estrutura antiga (structural sharing). |
+| **Estrutura de Avaliação** | Avaliação Estrita (Eager Evaluation): As expressões e argumentos são calculados imediatamente ao serem declarados ou passados para funções. | Avaliação Preguiçosa (Lazy Evaluation): Cria thunks (promessas de cálculo) no Heap. A memória armazena o grafo do cálculo pendente até que o valor seja estritamente necessário. |
+| **Sobrecarga de Alocação** | Objetos em Python têm alto overhead devido aos cabeçalhos PyObject (para manter contagem de referências e tipo dinâmico). | Variáveis são empacotadas (boxed closures) para suportar thunks, mas o GHC realiza otimizações agressivas de compilação nativa para reduzir essa sobrecarga. |
 ### 4. Trade-offs
 
 Haskell apresenta vantagens expressivas como a recursividade pura e a avaliação preguiçosa, que permitem estruturar o código sem se prender estritamente à ordem de declaração dos métodos e facilitam a manipulação de expressões. A tipagem estática e polimórfica oferece segurança robusta. A principal barreira é a curva de aprendizado acentuada devido à imutabilidade de variáveis e à ausência de laços imperativos tradicionais, exigindo repensar a lógica algorítmica.
