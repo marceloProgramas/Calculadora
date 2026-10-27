@@ -28,9 +28,9 @@
 
 ### Instruções de Teste (Entrada e Saída)
 
-1. Abra o link do OnlineGDB.
+1. Abra o link do PlayHaskell.
 
-2. Insira a expressão aritmética no na variável conta entre as aspas duplas(utilizando `*` para multiplicação).
+2. Insira a expressão aritmética no na variável `conta` entre as aspas duplas(utilizando `*` para multiplicação).
 
 3. Aperte o botão **Run**.
 
